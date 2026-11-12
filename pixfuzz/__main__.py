@@ -1,9 +1,8 @@
-"""CLI stub for pixfuzz. The run command is the work to be implemented."""
+"""CLI for pixfuzz: coverage-guided fuzzing of the harlequin decoder."""
 
 from __future__ import annotations
 
 import argparse
-import sys
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -25,12 +24,9 @@ def main(argv: list[str] | None = None) -> int:
     p = build_parser()
     args = p.parse_args(argv)
     if args.cmd == "run":
-        print(
-            "pixfuzz run is not implemented in this snapshot. "
-            "Please implement a coverage-guided fuzzer as described in the task.",
-            file=sys.stderr,
-        )
-        return 2
+        from .fuzzer import run_fuzz
+
+        return run_fuzz(args)
     p.error("unknown command")
     return 2
 

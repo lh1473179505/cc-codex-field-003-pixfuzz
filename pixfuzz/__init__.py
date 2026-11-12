@@ -1,3 +1,3 @@
-"""Coverage-guided fuzzer for the Harlequin decoder (not implemented in this snapshot)."""
+"""Coverage-guided fuzzer for the Harlequin decoder."""
 
 __version__ = "0.1.0"
